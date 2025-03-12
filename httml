@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas</title>
+    <style>
+        body {
+            background-color: #001f3f;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        #message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>De parte de Gab y Sebas</h1>
+    <div id="message">Si no te dieron flores amarillas, Gab y Sebas te regalamos este presente. <br> Tal vez solo nos conozcas a uno de nosotros o tal vez a los dos. <br> Con cariño, una cheargentina y un pecausa.</div>
+    <script>
+        let clickCount = 0;
+
+        document.body.addEventListener("click", function(event) {
+            clickCount++;
+            if (clickCount >= 10) {
+                document.getElementById("message").style.display = "block";
+                return;
+            }
+            
+            let flower = document.createElement("img");
+            flower.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Drawing_of_a_sunflower.png"; // Imagen de girasol
+            flower.classList.add("flower");
+            flower.style.left = event.clientX - 25 + "px";
+            flower.style.top = event.clientY - 25 + "px";
+            document.body.appendChild(flower);
+        });
+    </script>
+</body>
+</html>
